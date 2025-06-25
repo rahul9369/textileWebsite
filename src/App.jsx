@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AppLayout from "./Components/AppLAyout";
-import Hero from "./Components/Hero";
-import Signin from "./Components/Signing";
-import CreateAccountForm from "./Components/CreateAccountForm";
+import AppLayout from "./components/AppLAyout";
+import Hero from "./components/Hero";
+import Signin from "./components/Signing";
+import CreateAccountForm from "./components/CreateAccountForm";
 import TextileGenerate from "./components/TextileDesign/textileGenerate";
 import TextilePage from "./components/TextileDesign/textilePage";
-import Contact from "./Components/Contact";
-import AccountPage from "./Components/Account";
+import Contact from "./components/Contact";
+import AccountPage from "./components/Account";
 import { store } from "./store";
 import { Provider, useDispatch } from "react-redux";
 import { useEffect } from "react";
