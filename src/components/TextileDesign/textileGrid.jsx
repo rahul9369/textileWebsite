@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setTextileParameters } from "../../features/textiles/textilesSlice";
 import { setAllParameters } from "../../features/textileDesign/textileDesignSlice";
+import "./textile.css"
 
 export default function TextileDesignPage() {
   const [complexity, setComplexity] = useState(3);
@@ -68,7 +69,7 @@ export default function TextileDesignPage() {
         <h2 className="font-bold text-sm sm:text-xl text-black">
           Set Image Generation Parameters
         </h2>
-        <div className="grid grid-cols-3">
+        <div className="grid sm:grid-cols-3 grid-cols-1 gap-2">
           <div className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-md w-full sm:w-auto">
             <span className="mr-4 text-sm sm:text-base">Complexity</span>
             <div className="bg-white rounded-md py-1 w-50 flex items-center justify-center">
@@ -91,9 +92,9 @@ export default function TextileDesignPage() {
           </div>
 
           {/* No of Images */}
-          <div className="flex items-center gap-2 bg-black text-white px-2 py-2 rounded-md w-full sm:w-auto ml-2">
+          <div className="flex items-center  bg-black text-white px-2 py-2 rounded-md w-full sm:w-auto ">
             <span className="mr-1 text-sm sm:text-base">No. of Images</span>
-            <div className="bg-white py-1 rounded-md w-44 flex items-center justify-center">
+            <div className="bg-white py-1 rounded-md w-44 flex items-center justify-center sm:ml-4 ml-2">
               <button
                 onClick={() => setNumImages((prev) => Math.max(1, prev - 1))}
                 disabled={numImages === 1}
@@ -117,7 +118,7 @@ export default function TextileDesignPage() {
             <button
               onClick={handleSaveParameters}
               disabled={loading}
-              className="ml-auto bg-[#F7941D] hover:bg-orange-500 cursor-pointer text-white font-semibold px-5 py-2 rounded-md transition w-full sm:w-auto">
+              className="ml-auto bg-[#F7941D]  cursor-pointer text-white font-semibold px-5 py-2 rounded-md transition w-full sm:w-auto textile-btn-animate">
               {loading ? "Saving..." : "Save Parameters"}
             </button>
           </div>

@@ -48,7 +48,7 @@
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform, box-shadow;
-  background: #DB9245;
+  /* background: #DB9245; */
   color: #fff;
   font-weight: 600;
   font-size: 16px;
