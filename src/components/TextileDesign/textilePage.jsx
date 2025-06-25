@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setTextileParameters } from "../../features/textiles/textilesSlice";
+import "./textile.css";
 // import { setTextileParameters } from "../Features/Textiles/textilesSlice";
 export default function TextileDesignPage() {
   const [designType, setDesignType] = useState("standalone");
@@ -41,18 +42,18 @@ export default function TextileDesignPage() {
         {/* Text Section */}
         <div className="text-center sm:pt-10 pt-16 md:text-left space-y-4">
           {/* Desktop Heading */}
-          <h1 className="hidden md:block text-5xl font-bold leading-tight">
+          <h1 className="hidden md:block text-5xl font-bold leading-tight textile-heading-animate">
             Bring Textile <br />
             Designs to Life
           </h1>
 
           {/* Mobile Heading */}
-          <h1 className="block md:hidden text-2xl font-bold leading-tight">
+          <h1 className="block md:hidden text-2xl font-bold leading-tight textile-heading-animate">
             Bring Textile Designs to Life
           </h1>
 
           {/* Description */}
-          <p className="text-sm md:text-lg text-gray-800">
+          <p className="text-sm md:text-lg text-gray-800 textile-subheading-animate">
             With AI-Powered Image Generation <br />
             Customized for Textile Designs
           </p>
@@ -63,7 +64,7 @@ export default function TextileDesignPage() {
           <img
             src={Banner}
             alt="Illustration"
-            className="w-[320px] sm:w-[400px] md:w-[480px] xl:w-[520px] pt-4 sm:pt-10"
+            className="w-[320px] sm:w-[400px] md:w-[480px] xl:w-[520px] pt-4 sm:pt-10 textile-image-animate"
           />
         </div>
       </div>
@@ -175,7 +176,7 @@ export default function TextileDesignPage() {
     <button
       onClick={handleSaveParameters}
       disabled={loading}
-      className="ml-auto bg-[#F7941D] hover:bg-orange-500 cursor-pointer text-white font-semibold px-5 py-2 rounded-md transition w-full sm:w-auto">
+      className="ml-auto bg-[#F7941D] hover:bg-orange-500 cursor-pointer text-white font-semibold px-5 py-2 rounded-md transition w-full sm:w-auto textile-btn-animate">
       {loading ? "Saving..." : "Save Parameters"}
     </button>
   </div>
