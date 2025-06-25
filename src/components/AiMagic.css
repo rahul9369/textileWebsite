@@ -1,0 +1,97 @@
+/* AiMagic Page Animations */
+
+/* Button hover effects - Light animations */
+.ai-magic-page button.flex {
+  transform-origin: center;
+  will-change: transform, box-shadow;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.ai-magic-page button.flex:hover, .ai-magic-page button.flex:focus {
+  transform: scale(1.02) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%) !important;
+  color: #000 !important;
+}
+
+.ai-magic-page button.flex:active {
+  transform: scale(0.98) !important;
+}
+
+/* Statistics Cards hover effects - Light animations like Landing page */
+.ai-magic-page .ai-magic-stats-card {
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.ai-magic-page .ai-magic-stats-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+}
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+  .ai-magic-page button.flex {
+    transform-origin: center;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+  
+  .ai-magic-page button.flex:hover, .ai-magic-page button.flex:focus {
+    transform: scale(1.01) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .ai-magic-page button.flex:active {
+    transform: scale(0.99) !important;
+  }
+  
+  .ai-magic-page .ai-magic-stats-card:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* On mobile, use a top-to-bottom animation for stats cards */
+  .ai-magic-stats-card-animate {
+    animation-name: aiMagicFadeInDown;
+  }
+}
+
+/* Heading animation */
+.ai-magic-heading-animate {
+  animation: aiMagicFadeInDown 0.8s 0.2s forwards;
+  animation-fill-mode: backwards;
+}
+@keyframes aiMagicFadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Feature cards animation */
+.ai-magic-card-animate {
+  animation: aiMagicFadeInDown 0.7s 0.4s forwards;
+  animation-fill-mode: backwards;
+}
+.ai-magic-card-animate[data-card-index="0"] { animation-delay: 0.4s; }
+.ai-magic-card-animate[data-card-index="1"] { animation-delay: 0.5s; }
+.ai-magic-card-animate[data-card-index="2"] { animation-delay: 0.6s; }
+.ai-magic-card-animate[data-card-index="3"] { animation-delay: 0.7s; }
+
+/* Stats cards animation */
+.ai-magic-stats-card-animate {
+  animation: aiMagicFadeInLeft 0.7s forwards;
+  animation-fill-mode: backwards;
+}
+@keyframes aiMagicFadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.ai-magic-stats-card-animate[data-card-index="0"] { animation-delay: 0.6s; }
+.ai-magic-stats-card-animate[data-card-index="1"] { animation-delay: 0.7s; }
+.ai-magic-stats-card-animate[data-card-index="2"] { animation-delay: 0.8s; }
+.ai-magic-stats-card-animate[data-card-index="3"] { animation-delay: 0.9s; } 

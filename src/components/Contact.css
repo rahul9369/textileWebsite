@@ -1,0 +1,47 @@
+/* Contact Page Entry Animations */
+
+@keyframes contactFadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-heading {
+  opacity: 0;
+  animation: contactFadeInTop 0.7s 0.1s forwards;
+}
+
+.contact-subheading {
+  opacity: 0;
+  animation: contactFadeInTop 0.7s 0.5s forwards;
+}
+
+.contact-form-animate {
+  opacity: 0;
+  animation: contactFadeInTop 0.8s 1s forwards;
+}
+
+/* Send Button Hover Animation - Only color change, no scale or shadow */
+.bg-\[\#25262B\].text-white[type="submit"] {
+  transition: background 0.2s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+}
+.bg-\[\#25262B\].text-white[type="submit"]:hover,
+.bg-\[\#25262B\].text-white[type="submit"]:focus {
+  background: #44454b;
+  opacity: 1;
+}
+
+/* Social Icons Hover Animation */
+.contact-form-animate .text-2xl span {
+  transition: transform 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.contact-form-animate .text-2xl span:hover {
+  transform: scale(1.18);
+  color: #DB9245;
+} 

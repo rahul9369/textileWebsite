@@ -1,0 +1,115 @@
+/* Account Page Animations */
+
+@keyframes accountCardIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.account-card-animate {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.account-card-animate.account-card-in-view {
+  animation: accountCardIn 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* Staggered delay for each card */
+.account-card-animate[data-card-index="0"] { animation-delay: 0.1s; }
+.account-card-animate[data-card-index="1"] { animation-delay: 0.3s; }
+.account-card-animate[data-card-index="2"] { animation-delay: 0.5s; }
+.account-card-animate[data-card-index="3"] { animation-delay: 0.7s; }
+
+/* Button hover animation - More visible color change */
+.account-card-btn-animate {
+  transition: background 0.18s cubic-bezier(0.4,0,0.2,1), filter 0.18s;
+}
+.account-card-btn-animate:hover,
+.account-card-btn-animate:focus {
+  background: #e29642 !important;
+  filter: brightness(1.08) saturate(1.2);
+}
+
+/* Account Action Buttons Hover Animation */
+.account-action-btn {
+  transition: background-color 0.3s ease;
+}
+
+/* Log Out Button */
+.account-action-btn.logout:hover {
+  background-color: #3a3b42 !important;
+}
+
+/* Request Edit Details Button */
+.account-action-btn.request-edit:hover {
+  background-color: #3a3b42 !important;
+}
+
+/* Recharge Wallet Button */
+.account-action-btn.recharge:hover {
+  background-color: #3a3b42 !important;
+}
+
+/* Get It Now button (Account page) - same as Business Download Now */
+.account-getit-btn {
+  min-width: 160px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, box-shadow;
+  background: #DB9245;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.account-getit-btn:hover, .account-getit-btn:focus {
+  transform: scale(1.05) !important;
+  box-shadow: 0 15px 30px rgba(255, 146, 45, 0.3) !important;
+  background: linear-gradient(135deg, #ff922d 0%, #e47c1c 100%) !important;
+  color: #fff !important;
+}
+.account-getit-btn:active {
+  transform: scale(0.98) !important;
+}
+.account-getit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+}
+.account-getit-btn:hover::before {
+  left: 100%;
+}
+.account-getit-btn span {
+  transition: all 0.3s ease;
+}
+.account-getit-btn:hover span {
+  transform: translateX(2px);
+}
+@media (max-width: 768px) {
+  .account-getit-btn {
+    min-width: 0;
+    height: 40px;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+} 

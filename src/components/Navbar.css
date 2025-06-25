@@ -1,0 +1,19 @@
+/* Navbar.css */
+
+.get-started-btn {
+  transition: background 0.4s, transform 0.2s, box-shadow 0.3s, color 0.2s, border 0.2s;
+  background: #000;
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  border: 2px solid transparent;
+}
+
+.get-started-btn:hover {
+  background: linear-gradient(90deg, #ff9800 0%, #ff7e5f 100%);
+  color: #fff;
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 32px 0 rgba(255,126,95,0.18);
+  border: 2px solid #fff;
+  outline: none;
+  z-index: 2;
+} 

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: anton;
+  src: url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+}
+
+@import "tailwindcss";
+
+/* @theme {
+  --font-doto: anton, "sans-rerif";
+} */

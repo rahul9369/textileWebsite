@@ -1,0 +1,188 @@
+/* Landing.css */
+
+/* Entry animation for main container */
+.landing-fade-in {
+  animation: landingFadeIn 1.2s cubic-bezier(0.4,0,0.2,1) !important;
+}
+@keyframes landingFadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered top-to-bottom for heading, subheading, description */
+.landing-heading-animate {
+  opacity: 0;
+  animation: landingHeadingFadeIn 0.7s 0.1s forwards !important;
+}
+.landing-subheading-animate {
+  opacity: 0;
+  animation: landingHeadingFadeIn 0.7s 0.4s forwards !important;
+}
+.landing-desc-animate {
+  opacity: 0;
+  animation: landingHeadingFadeIn 0.7s 0.7s forwards !important;
+}
+@keyframes landingHeadingFadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards left-to-right staggered */
+.landing-card-animate {
+  opacity: 0;
+  animation: landingCardIn 0.7s var(--delay, 0s) forwards !important;
+}
+@keyframes landingCardIn {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Button left-in and right-in */
+.landing-btn-left {
+  opacity: 0;
+  animation: landingBtnLeftIn 0.7s 1.2s forwards !important;
+}
+.landing-btn-right {
+  opacity: 0;
+  animation: landingBtnRightIn 0.7s 1.4s forwards !important;
+  position: relative;
+  overflow: hidden;
+}
+.landing-btn-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+}
+.landing-btn-right:hover::before {
+  left: 100%;
+}
+.landing-btn-right span {
+  transition: all 0.3s ease;
+}
+.landing-btn-right:hover span {
+  transform: translateX(2px);
+}
+@keyframes landingBtnLeftIn {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes landingBtnRightIn {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Light Card hover effects */
+.landing-card {
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.landing-card:hover, .landing-card:focus {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+}
+
+/* Light Button hover effects */
+.landing-btn {
+  transform-origin: center;
+  will-change: transform, box-shadow;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.landing-btn:hover, .landing-btn:focus {
+  transform: scale(1.02) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.landing-btn:active {
+  transform: scale(0.98) !important;
+}
+
+.landing-btn-left:hover, .landing-btn-left:focus {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%) !important;
+  color: #000 !important;
+}
+
+.landing-btn-right:hover, .landing-btn-right:focus {
+  box-shadow: 0 15px 30px rgba(255, 146, 45, 0.3) !important;
+  background: linear-gradient(135deg, #ff922d 0%, #e47c1c 100%) !important;
+  border-color: #f59e0b !important;
+  color: #fff !important;
+}
+
+.landing-btn-right:hover .download-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Floating animation for popups after they reach their positions */
+@keyframes landingFloat {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-12px); }
+}
+
+/* Light popup hover effects */
+.landing-float:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transform: translateY(-8px) scale(1.02) !important;
+}
+
+/* Different rotation effects for each popup */
+.landing-float:nth-child(1):hover {
+  transform: translateY(-8px) scale(1.02) rotate(1deg) !important;
+}
+
+.landing-float:nth-child(2):hover {
+  transform: translateY(-8px) scale(1.02) rotate(-1deg) !important;
+}
+
+.landing-float:nth-child(3):hover {
+  transform: translateY(-8px) scale(1.02) rotate(0.5deg) !important;
+}
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+  .landing-btn {
+    transform-origin: center;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+  
+  .landing-btn:hover, .landing-btn:focus {
+    transform: scale(1.01) !importanT;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .landing-btn:active {
+    transform: scale(0.99) !important;
+  }
+  
+  .landing-card:hover, .landing-card:focus {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .landing-float:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+  }
+}
+
+/* Desktop button spacing */
+@media (min-width: 768px) {
+  .landing-btn-left {
+    margin-right: 0.5rem;
+  }
+  
+  .landing-btn-right {
+    margin-left: 0.5rem;
+  }
+}
