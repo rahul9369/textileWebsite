@@ -84,6 +84,7 @@ export default function TextileImageGen() {
 
   const handleSubmit = async () => {
     setErrorMsg("");
+    setSelectedFile("");
 
     if (
       (selectedTab === "generate" || selectedTab === "edit") &&
@@ -408,7 +409,7 @@ export default function TextileImageGen() {
                 <button
                   key={tab.key}
                   onClick={() => handleTabClick(tab.key)}
-                  className={`px-3 py-1 flex items-center gap-1 rounded font-semibold cursor-pointer 
+                  className={`px-3 py-1 flex items-center w-36 gap-1 rounded font-semibold cursor-pointer 
             ${
               selectedTab === tab.key
                 ? "bg-black text-white"
@@ -503,7 +504,7 @@ export default function TextileImageGen() {
             </div>
 
             {/* Desktop View */}
-            <div className="hidden sm:flex flex-row relative items-stretch gap-2 w-full">
+            <div className="hidden sm:flex flex-row justify-between relative items-stretch gap-2 w-full">
               {(selectedTab === "generate" || selectedTab === "edit") && (
                 <div className="relative w-full">
                   <input
@@ -519,25 +520,33 @@ export default function TextileImageGen() {
                       errorMsg && !prompt ? "border border-red-500" : ""
                     }`}
                   />
-                  {selectedEditImage && (
-                    <a
-                      href={selectedEditImage}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute right-8 top-3 text-xs text-blue-600 underline truncate max-w-[140px]">
-                      📎 {selectedEditImage}
-                    </a>
-                  )}
                 </div>
               )}
 
-              <input
+              {(selectedEditImage || selectedFile) && (
+                <a
+                  href={selectedEditImage || URL.createObjectURL(selectedFile)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`absolute ${
+                    selectedTab === "convert"
+                      ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                      : selectedTab === "grid"
+                      ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                      : "right-52 top-3 text-blue-600 text-xs"
+                  }  truncate max-w-[140px]`}>
+                  📎{" "}
+                  {selectedEditImage || selectedFile?.name || "Selected File"}
+                </a>
+              )}
+
+              {/* <input
                 type="file"
                 id="fileUpload"
                 accept="image/*"
                 onChange={handleFileChange}
                 className="w-full "
-              />
+              /> */}
               <label htmlFor="fileUpload">
                 <img
                   src={vector}
@@ -551,7 +560,7 @@ export default function TextileImageGen() {
                 disabled={loading}
                 className={`${
                   loading ? "bg-orange-300 cursor-not-allowed" : "bg-orange-400"
-                } w-44 px-4 py-2 hover:bg-orange-500 rounded-lg cursor-pointer text-white font-semibold flex justify-center items-center gap-2`}>
+                } w-40 px-4 py-2 hover:bg-orange-500 rounded-lg cursor-pointer text-white font-semibold flex justify-center items-center gap-2`}>
                 {loading
                   ? "Processing..."
                   : selectedTab === "generate"
