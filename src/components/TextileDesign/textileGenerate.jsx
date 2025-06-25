@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setResultImages } from "../../features/generate/generateSlice";
+import "./textile.css";
 
 export default function TextileImageGen() {
   const [selectedTab, setSelectedTab] = useState("generate");
@@ -83,6 +84,7 @@ export default function TextileImageGen() {
 
   const handleSubmit = async () => {
     setErrorMsg("");
+    setSelectedFile("");
 
     if (
       (selectedTab === "generate" || selectedTab === "edit") &&
@@ -244,7 +246,7 @@ export default function TextileImageGen() {
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         {!result || result?.length === 0 ? (
           <>
-            <div className="text-center pt-10 md:text-left space-y-4">
+            <div className="text-center pt-10 md:text-left space-y-4 textile-heading-animate">
               {/* Desktop Heading */}
               <h1 className="hidden md:block text-5xl font-bold leading-tight">
                 Bring Textile <br />
@@ -252,22 +254,22 @@ export default function TextileImageGen() {
               </h1>
 
               {/* Mobile Heading */}
-              <h1 className="block md:hidden text-2xl font-bold leading-tight">
+              <h1 className="block md:hidden text-2xl font-bold leading-tight textile-heading-animate">
                 Bring Textile Designs to Life
               </h1>
 
               {/* Description */}
-              <p className="text-sm md:text-lg text-gray-800">
+              <p className="text-sm md:text-lg text-gray-800 textile-subheading-animate">
                 With AI-Powered Image Generation <br />
                 Customized for Textile Designs
               </p>
             </div>
 
-            <div className="w-full flex justify-center md:justify-end">
+            <div className="w-full flex justify-center md:justify-end ">
               <img
                 src={Banner}
                 alt="Illustration"
-                className="w-[360px] sm:w-[400px] md:w-[480px] xl:w-[520px] pt-10 sm:pt-20"
+                className="w-[360px] sm:w-[400px] md:w-[480px] xl:w-[520px] pt-10 sm:pt-20 textile-image-animate"
               />
             </div>
           </>
@@ -407,7 +409,7 @@ export default function TextileImageGen() {
                 <button
                   key={tab.key}
                   onClick={() => handleTabClick(tab.key)}
-                  className={`px-3 py-1 flex items-center gap-1 rounded font-semibold cursor-pointer 
+                  className={`px-3 py-1 flex items-center w-36 gap-1 rounded font-semibold cursor-pointer 
             ${
               selectedTab === tab.key
                 ? "bg-black text-white"
@@ -428,7 +430,7 @@ export default function TextileImageGen() {
           </div>
 
           {/* Prompt Input and Upload */}
-          <div className="flex flex-col sm:flex-row relative items-stretch gap-2 bg-white rounded-md overflow-hidden p-1">
+          <div className="flex flex-col sm:flex-row sm:relative items-stretch gap-2 bg-white rounded-md overflow-hidden sm:p-1 p-10">
             {/* Mobile View */}
             <div className="flex flex-col w-full sm:hidden">
               {/* Input Section */}
@@ -438,11 +440,11 @@ export default function TextileImageGen() {
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   placeholder=" "
-                  className={`w-full px-4 pt-5 pb-2 outline-none text-sm border border-gray-300 rounded-md ${
+                  className={`w-full px-4 pt-5 pb-2 outline-none text-sm  rounded-md ${
                     errorMsg && !prompt ? "border-red-500" : ""
                   }`}
                 />
-                <label className="absolute left-4 top-1 text-xs text-gray-500">
+                <label className="absolute left-1 top-0 text-xs text-gray-500">
                   Enter prompt to generate design
                 </label>
 
@@ -457,7 +459,7 @@ export default function TextileImageGen() {
                 <label htmlFor="fileUpload">
                   <img
                     src={vector}
-                    className="absolute top-7 right-3 cursor-pointer w-5 h-5"
+                    className="absolute top-7 right-3 cursor-pointer w-5 h-5 mt-6"
                     alt="Upload Icon"
                   />
                 </label>
@@ -474,7 +476,7 @@ export default function TextileImageGen() {
               </div>
 
               {/* Submit Button */}
-              <div className="w-full">
+              <div className="w-full ">
                 <button
                   onClick={handleSubmit}
                   disabled={loading}
@@ -482,7 +484,7 @@ export default function TextileImageGen() {
                     loading
                       ? "bg-orange-300 cursor-not-allowed"
                       : "bg-orange-400"
-                  } w-full px-4 py-3 hover:bg-orange-500 rounded-lg cursor-pointer text-white font-semibold flex justify-center items-center gap-2`}>
+                  }  w-full px-4 py-3 hover:bg-orange-500 rounded-lg cursor-pointer text-white font-semibold flex justify-center items-center gap-2 `}>
                   {loading
                     ? "Processing..."
                     : selectedTab === "generate"
@@ -502,7 +504,7 @@ export default function TextileImageGen() {
             </div>
 
             {/* Desktop View */}
-            <div className="hidden sm:flex flex-row relative items-stretch gap-2 w-full">
+            <div className="hidden sm:flex flex-row justify-between relative items-stretch gap-2 w-full">
               {(selectedTab === "generate" || selectedTab === "edit") && (
                 <div className="relative w-full">
                   <input
@@ -518,25 +520,33 @@ export default function TextileImageGen() {
                       errorMsg && !prompt ? "border border-red-500" : ""
                     }`}
                   />
-                  {selectedEditImage && (
-                    <a
-                      href={selectedEditImage}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute right-8 top-3 text-xs text-blue-600 underline truncate max-w-[140px]">
-                      📎 {selectedEditImage}
-                    </a>
-                  )}
                 </div>
               )}
 
-              <input
+              {(selectedEditImage || selectedFile) && (
+                <a
+                  href={selectedEditImage || URL.createObjectURL(selectedFile)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`absolute ${
+                    selectedTab === "convert"
+                      ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                      : selectedTab === "grid"
+                      ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                      : "right-52 top-3 text-blue-600 text-xs"
+                  }  truncate max-w-[140px]`}>
+                  📎{" "}
+                  {selectedEditImage || selectedFile?.name || "Selected File"}
+                </a>
+              )}
+
+              {/* <input
                 type="file"
                 id="fileUpload"
                 accept="image/*"
                 onChange={handleFileChange}
                 className="w-full "
-              />
+              /> */}
               <label htmlFor="fileUpload">
                 <img
                   src={vector}
@@ -550,7 +560,7 @@ export default function TextileImageGen() {
                 disabled={loading}
                 className={`${
                   loading ? "bg-orange-300 cursor-not-allowed" : "bg-orange-400"
-                } w-44 px-4 py-2 hover:bg-orange-500 rounded-lg cursor-pointer text-white font-semibold flex justify-center items-center gap-2`}>
+                } w-40 px-4 py-2 hover:bg-orange-500 rounded-lg cursor-pointer text-white font-semibold flex justify-center items-center gap-2`}>
                 {loading
                   ? "Processing..."
                   : selectedTab === "generate"
