@@ -399,7 +399,7 @@ export default function TextileImageGen() {
             </div>
 
             {/* Buttons section */}
-            <div className="flex flex-row gap-2 justify-center w-full sm:w-auto order-2 sm:order-1">
+            <div className="flex sm:flex-row flex-wrap gap-2 justify-center w-full sm:w-auto order-2 sm:order-1">
               {[
                 { key: "generate", icon: plus, label: "Generate" },
                 { key: "edit", icon: pen, label: "Edit With AI" },
@@ -409,13 +409,13 @@ export default function TextileImageGen() {
                 <button
                   key={tab.key}
                   onClick={() => handleTabClick(tab.key)}
-                  className={`px-3 py-1 flex items-center w-36 gap-1 rounded font-semibold cursor-pointer 
+                  className={`px-3 sm:py-1 py-2 flex items-center w-full sm:w-36 gap-1 rounded font-semibold cursor-pointer 
             ${
               selectedTab === tab.key
                 ? "bg-black text-white"
                 : "bg-white text-black"
             } 
-            text-xs sm:text-base truncate max-w-[110px] sm:max-w-[150px]`}>
+            text-xs sm:text-base truncate max-w-[170px] sm:max-w-[150px]`}>
                   <img
                     src={tab.icon}
                     className={`w-4 h-4 ${
@@ -430,36 +430,63 @@ export default function TextileImageGen() {
           </div>
 
           {/* Prompt Input and Upload */}
-          <div className="flex flex-col sm:flex-row sm:relative items-stretch gap-2 bg-white rounded-md overflow-hidden sm:p-1 p-10">
+          <div className="flex flex-col sm:flex-row sm:relative items-stretch gap-2 bg-white rounded-md overflow-hidden sm:p-1 p-1">
             {/* Mobile View */}
             <div className="flex flex-col w-full sm:hidden">
               {/* Input Section */}
               <div className="relative w-full mb-2">
-                <input
-                  type="text"
-                  value={prompt}
-                  onChange={(e) => setPrompt(e.target.value)}
-                  placeholder=" "
-                  className={`w-full px-4 pt-5 pb-2 outline-none text-sm  rounded-md ${
-                    errorMsg && !prompt ? "border-red-500" : ""
-                  }`}
-                />
-                <label className="absolute left-1 top-0 text-xs text-gray-500">
+                {(selectedTab === "generate" || selectedTab === "edit") && (
+                  <div className="relative w-full">
+                    <input
+                      type="text"
+                      value={prompt}
+                      onChange={(e) => setPrompt(e.target.value)}
+                      placeholder={
+                        selectedTab === "generate"
+                          ? "Enter prompt to generate design"
+                          : "Enter prompt to edit design"
+                      }
+                      className={`w-full px-4 py-2 outline-none text-base pr-36 ${
+                        errorMsg && !prompt ? "border border-red-500" : ""
+                      }`}
+                    />
+                  </div>
+                )}
+
+                {(selectedEditImage || selectedFile) && (
+                  <a
+                    href={
+                      selectedEditImage || URL.createObjectURL(selectedFile)
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`absolute ${
+                      selectedTab === "convert"
+                        ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                        : selectedTab === "grid"
+                        ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                        : "right-52 top-3 text-blue-600 text-xs"
+                    }  truncate max-w-[140px]`}>
+                    📎{" "}
+                    {selectedEditImage || selectedFile?.name || "Selected File"}
+                  </a>
+                )}
+                {/* <label className="absolute left-1 top-0 text-xs text-gray-500">
                   Enter prompt to generate design
-                </label>
+                </label> */}
 
                 {/* Upload Icon */}
-                <input
+                {/* <input
                   type="file"
                   id="fileUpload"
                   accept="image/*"
                   onChange={handleFileChange}
                   className=""
-                />
+                /> */}
                 <label htmlFor="fileUpload">
                   <img
                     src={vector}
-                    className="absolute top-7 right-3 cursor-pointer w-5 h-5 mt-6"
+                    className="absolute top-1 right-3 cursor-pointer w-5 h-5 mt-6"
                     alt="Upload Icon"
                   />
                 </label>
