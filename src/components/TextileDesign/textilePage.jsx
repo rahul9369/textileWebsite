@@ -82,48 +82,50 @@ export default function TextileDesignPage() {
         </h2>
 
         {/* Design Type */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <div className="flex gap-2 bg-white rounded-md p-1 w-full sm:w-auto">
-            <button
-              onClick={() => setDesignType("standalone")}
-              className={`px-4 py-1 rounded-md cursor-pointer font-semibold transition ${
-                designType === "standalone"
-                  ? "bg-black text-white"
-                  : "text-black"
-              }`}>
-              Standalone
-            </button>
-            <button
-              onClick={() => setDesignType("pattern")}
-              className={`px-4 py-1 rounded-md cursor-pointer font-semibold transition ${
-                designType === "pattern" ? "bg-black text-white" : "text-black"
-              }`}>
-              Pattern
-            </button>
-          </div>
+  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+  {/* Button Group */}
+  <div className="flex gap-2 bg-white rounded-md p-1 sm:w-[358px] w-[290px]">
+    <button
+      onClick={() => setDesignType("standalone")}
+      className={`px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
+        designType === "standalone" ? "bg-black text-white" : "text-black"
+      }`}
+    >
+      Standalone
+    </button>
+    <button
+      onClick={() => setDesignType("pattern")}
+      className={`ml-auto px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
+        designType === "pattern" ? "bg-black text-white" : "text-black"
+      }`}
+    >
+      Pattern
+    </button>
+  </div>
 
-          {/* Shade input desktop */}
-          <div className="hidden sm:block flex-1 max-w-[400px]">
-            <input
-              type="text"
-              placeholder="Enter Colour / Shade Preference"
-              value={shade}
-              onChange={(e) => setShade(e.target.value)}
-              className="w-full px-4 py-2 rounded-md bg-white text-sm outline-none border border-black"
-            />
-          </div>
-        </div>
+  {/* Shade input desktop */}
+  <div className="hidden sm:block w-[358px]">
+    <input
+      type="text"
+      placeholder="Enter Colour / Shade Preference"
+      value={shade}
+      onChange={(e) => setShade(e.target.value)}
+      className="w-full px-2 py-2 rounded-md bg-white text-sm outline-none border border-black"
+    />
+  </div>
+</div>
+
 
         {/* Complexity + Images */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid sm:grid-cols-3 grid-cols-1 gap-3 sm:gap-4">
           {/* Complexity */}
-          <div className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-md w-full sm:w-auto">
+          <div className="flex items-center gap-2 bg-black text-white sm:px-4 px-2 py-2 rounded-md w-full sm:w-auto">
             <span className="mr-4 text-sm sm:text-base">Complexity</span>
-            <div className="bg-white rounded-md py-1 w-50 flex items-center justify-center">
+            <div className="bg-white rounded-md py-1 sm:w-44 w-52 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setComplexity((prev) => Math.max(1, prev - 1))}
                 disabled={complexity === 1}
-                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200">
+                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 mr-auto">
                 <FaMinus size={12} />
               </button>
               <span className="text-black px-8 py-0.5 font-semibold">
@@ -132,7 +134,7 @@ export default function TextileDesignPage() {
               <button
                 onClick={() => setComplexity((prev) => Math.min(10, prev + 1))}
                 disabled={complexity === 10}
-                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200">
+                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 ml-auto">
                 <FaPlus size={12} />
               </button>
             </div>
@@ -141,11 +143,11 @@ export default function TextileDesignPage() {
           {/* No of Images */}
           <div className="flex items-center gap-2 bg-black text-white px-2 py-2 rounded-md w-full sm:w-auto">
             <span className="mr-1 text-sm sm:text-base">No. of Images</span>
-            <div className="bg-white py-1 rounded-md w-44 flex items-center justify-center">
+            <div className="bg-white py-1 rounded-md w-44 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setNumImages((prev) => Math.max(1, prev - 1))}
                 disabled={numImages === 1}
-                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200">
+                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 mr-auto">
                 <FaMinus size={12} />
               </button>
               <span className="text-black px-8 py-0.5 font-semibold">
@@ -154,7 +156,7 @@ export default function TextileDesignPage() {
               <button
                 onClick={() => setNumImages((prev) => Math.min(10, prev + 1))}
                 disabled={numImages === 10}
-                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200">
+                className="text-black px-2 py-1 font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-200 ml-auto">
                 <FaPlus size={12} />
               </button>
             </div>

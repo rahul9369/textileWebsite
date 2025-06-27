@@ -70,9 +70,9 @@ export default function TextileDesignPage() {
           Set Image Generation Parameters
         </h2>
         <div className="grid sm:grid-cols-3 grid-cols-1 gap-2">
-          <div className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-md w-full sm:w-auto">
+          <div className="flex items-center gap-2 bg-black text-white px-2 py-2 rounded-md w-full sm:w-auto">
             <span className="mr-4 text-sm sm:text-base">Complexity</span>
-            <div className="bg-white rounded-md py-1 w-50 flex items-center justify-center">
+            <div className="bg-white rounded-md py-1 w-48 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setComplexity((prev) => Math.max(1, prev - 1))}
                 disabled={complexity === 1}
@@ -94,7 +94,7 @@ export default function TextileDesignPage() {
           {/* No of Images */}
           <div className="flex items-center  bg-black text-white px-2 py-2 rounded-md w-full sm:w-auto ">
             <span className="mr-1 text-sm sm:text-base">No. of Images</span>
-            <div className="bg-white py-1 rounded-md w-44 flex items-center justify-center sm:ml-4 ml-2">
+            <div className="bg-white py-1 rounded-md w-48 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setNumImages((prev) => Math.max(1, prev - 1))}
                 disabled={numImages === 1}
