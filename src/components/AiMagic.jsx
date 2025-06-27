@@ -71,16 +71,25 @@ export default function AiMagicSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="hidden lg:flex lg:w-1/3 absolute top-[1px] right-[20px] justify-center">
-            <img
+            className="hidden lg:flex lg:w-[40%] absolute top-[80px] right-[60px] justify-center">
+            {/* <img
               src={Aimagic}
               alt="AI Magic"
               className="w-[260px] md:w-[400px] h-[400px] md:h-[550px] rounded-xl drop-shadow-2xl"
+            /> */}
+            <video
+              className="rounded-lg w-full object-fill h-90 "
+              src="https://res.cloudinary.com/dyuov6i8c/video/upload/v1751011151/Textile%20Design%20Generator/czsezmc1y2llfz28myuf.mp4"
+              autoPlay
+              // loop
+              muted
+              controls
+              // playsInline
             />
           </motion.div>
 
           {/* Left Content */}
-          <div className="lg:w-[65%] space-y-6 px-2">
+          <div className="lg:w-[50%] space-y-6 px-2">
             <h2
               className={`text-center lg:text-left text-xl md:text-xl pt-4 ${
                 inView ? "ai-magic-heading-animate" : ""
@@ -151,26 +160,32 @@ export default function AiMagicSection() {
             </div>
 
             {/* Statistics */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-              {[
-                { label: "Accurate Design Conversion", value: 95, suffix: "%" },
-                { label: "Recolour Accuracy", value: 98, suffix: "%" },
-                { label: "Faster Pattern Creation", value: 3, suffix: "X" },
-                { label: "Manual Work Reduced", value: 95, suffix: "%" },
-              ].map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="bg-orange-200 p-4 rounded-2xl shadow-lg text-center">
-                  <div className="text-xl md:text-2xl font-bold">
-                    <CountUpOnView end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <p className="text-xs md:text-xl text-gray-500 mt-1">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
+        <div className="grid grid-cols-2 w-[93%] mx-auto sm:grid-cols-4 gap-4 pt-4">
+          {[
+            { label: "Accurate Design Conversion", value: 95, suffix: "%" },
+            { label: "Recolour Accuracy", value: 98, suffix: "%" },
+            { label: "Faster Pattern Creation", value: 3, suffix: "X" },
+            { label: "Manual Work Reduced", value: 95, suffix: "%" },
+          ].map((stat, idx) => (
+            <div
+              key={idx}
+              className="bg-orange-200 p-4 rounded-2xl shadow-lg text-center">
+              <div
+                className="text-xl text-[#292c33] md:text-2xl font-bold"
+                style={{
+                  fontFamily: "'Anton', sans-serif",
+                  letterSpacing: "0.1em",
+                }}>
+                <CountUpOnView end={stat.value} suffix={stat.suffix} />
+              </div>
+
+              <p className="text-xs md:text-xl text-gray-500 mt-1">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -190,9 +205,15 @@ export default function AiMagicSection() {
             { value: 40, label: "Less Time Spent", suffix: "%" },
           ].map((stat, idx) => (
             <div key={idx} className="w-full text-center">
-              <div className="text-2xl font-bold text-orange-600">
+              <div
+                className="text-2xl font-bold text-orange-600"
+                style={{
+                  fontFamily: "Anton, sans-serif", // ✅ No quotes needed
+                  letterSpacing: "0.05em", // 👌 Tighter spacing for bold fonts
+                }}>
                 <CountUpOnView end={stat.value} suffix={stat.suffix} />
               </div>
+
               <p className="mt-1 text-[14px] font-semibold text-gray-800">
                 {stat.label}
               </p>
@@ -206,7 +227,12 @@ export default function AiMagicSection() {
             { value: 5, label: "Mtr. of Fabric Managed", suffix: "L+" },
           ].map((stat, idx) => (
             <div key={idx} className="w-full text-center">
-              <div className="text-2xl font-bold text-orange-600">
+              <div
+                className="text-2xl font-bold text-orange-600"
+                style={{
+                  fontFamily: "Anton, sans-serif", // ✅ No quotes needed
+                  letterSpacing: "0.05em", // 👌 Tighter spacing for bold fonts
+                }}>
                 <CountUpOnView end={stat.value} suffix={stat.suffix} />
               </div>
               <p className="mt-1 text-[14px] font-semibold text-gray-800">
@@ -226,9 +252,15 @@ export default function AiMagicSection() {
             { value: 5, label: "Mtr. of Fabric Managed", suffix: "L+" },
           ].map((stat, idx) => (
             <div key={idx} className="w-full text-center">
-              <div className="text-5xl font-bold text-orange-600">
+              <div
+                className="text-5xl font-bold text-orange-600"
+                style={{
+                  fontFamily: "Anton, sans-serif", // ✅ No quotes needed
+                  letterSpacing: "0.05em", // 👌 Tighter spacing for bold fonts
+                }}>
                 <CountUpOnView end={stat.value} suffix={stat.suffix} />
               </div>
+
               <p className="mt-1 text-[24px] font-semibold text-gray-800">
                 {stat.label}
               </p>
