@@ -136,9 +136,15 @@ export default function TextileLandingPage() {
                 key={idx}
                 className="landing-card landing-card-animate bg-orange-200 shadow rounded-lg p-1 w-[32%] text-center h-32 flex flex-col justify-center items-center"
                 style={{ "--delay": `${0.9 + idx * 0.2}s` }}>
-                <p className="text-lg sm:text-xl font-bold text-orange-500 leading-tight mb-3">
+                <p
+                  className="text-lg sm:text-3xl font-bold text-[#292c33] leading-tight mb-3"
+                  style={{
+                    fontFamily: "Anton, sans-serif",
+                    letterSpacing: "0.06em", // optional spacing
+                  }}>
                   <AnimatedCounter value={stat.value} isVisible={inView} />
                 </p>
+
                 <p className="text-[10px] sm:text-xs leading-tight text-center break-words">
                   {stat.label}
                 </p>
