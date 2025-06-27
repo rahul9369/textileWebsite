@@ -115,12 +115,19 @@ export default function TextileImageGen() {
 
     try {
       if (selectedTab === "generate") {
+        const uploaded = await uploadImage();
+        if (!uploaded?.url) {
+          setErrorMsg("Image upload failed.");
+          setLoading(false);
+          return;
+        }
         payload = {
           description: prompt,
           style: designType,
           color_info: shade,
           simplicity: String(complexity),
           n_options: String(numImages),
+          reference_urls: uploaded?.url,
         };
       } else if (selectedTab === "edit") {
         if (!selectedEditImage && !selectedFile) {
@@ -240,13 +247,13 @@ export default function TextileImageGen() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FCD8A8] text-gray-900 flex flex-col items-center px-4 py-10">
+    <div className="min-h-screen bg-[#FCD8A8] text-gray-900 flex flex-col items-center sm:px-4 py-10">
       {/* Top Banner */}
       {/* Banner or Generated Image Section */}
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         {!result || result?.length === 0 ? (
           <>
-            <div className="text-center pt-10 md:text-left space-y-4 textile-heading-animate">
+            <div className="text-center sm:pt-10 pt-20 md:text-left space-y-4 textile-heading-animate">
               {/* Desktop Heading */}
               <h1 className="hidden md:block text-5xl font-bold leading-tight">
                 Bring Textile <br />
@@ -358,7 +365,7 @@ export default function TextileImageGen() {
 
       {/* Main Section */}
       <div
-        className="w-full max-w-7xl mt-10"
+        className="sm:w-full w-[90%] max-w-7xl mt-10"
         id="editFormSection"
         ref={formRef}>
         {/* Coins section */}
@@ -403,7 +410,7 @@ export default function TextileImageGen() {
               {[
                 { key: "generate", icon: plus, label: "Generate" },
                 { key: "edit", icon: pen, label: "Edit With AI" },
-                { key: "convert", icon: imageIcon, label: "Image to ESP" },
+                { key: "convert", icon: imageIcon, label: "Image to EPS" },
                 { key: "grid", icon: imageIcon, label: "Image to GRID" },
               ].map((tab) => (
                 <button
@@ -415,7 +422,7 @@ export default function TextileImageGen() {
                 ? "bg-black text-white"
                 : "bg-white text-black"
             } 
-            text-xs sm:text-base truncate max-w-[170px] sm:max-w-[150px]`}>
+            text-xs sm:text-base truncate max-w-[160px] sm:max-w-[150px]`}>
                   <img
                     src={tab.icon}
                     className={`w-4 h-4 ${
@@ -430,7 +437,12 @@ export default function TextileImageGen() {
           </div>
 
           {/* Prompt Input and Upload */}
-          <div className="flex flex-col sm:flex-row sm:relative items-stretch gap-2 bg-white rounded-md overflow-hidden sm:p-1 p-1">
+          <div
+            className={`flex flex-col justify-end sm:flex-row sm:relative items-stretch gap-2 bg-white rounded-md overflow-hidden sm:p-1 p-1 ${
+              selectedTab === "convert" || selectedTab === "grid"
+                ? "sm:h-auto h-28 "
+                : "h-auto"
+            }`}>
             {/* Mobile View */}
             <div className="flex flex-col w-full sm:hidden">
               {/* Input Section */}
@@ -462,10 +474,10 @@ export default function TextileImageGen() {
                     rel="noopener noreferrer"
                     className={`absolute ${
                       selectedTab === "convert"
-                        ? "left-5 top-2 text-green-600 font-semibold text-sm"
+                        ? "left-5 top-[-24px] text-green-600 font-semibold text-sm"
                         : selectedTab === "grid"
-                        ? "left-5 top-2 text-green-600 font-semibold text-sm"
-                        : "right-52 top-3 text-blue-600 text-xs"
+                        ? "left-5 top-[-24px] text-green-600 font-semibold text-sm"
+                        : "sm:right-52 right-10 top-3 text-blue-600 text-xs"
                     }  truncate max-w-[140px]`}>
                     📎{" "}
                     {selectedEditImage || selectedFile?.name || "Selected File"}
@@ -476,17 +488,21 @@ export default function TextileImageGen() {
                 </label> */}
 
                 {/* Upload Icon */}
-                {/* <input
+                <input
                   type="file"
                   id="fileUpload"
                   accept="image/*"
                   onChange={handleFileChange}
-                  className=""
-                /> */}
+                  className="hidden"
+                />
                 <label htmlFor="fileUpload">
                   <img
                     src={vector}
-                    className="absolute top-1 right-3 cursor-pointer w-5 h-5 mt-6"
+                    className={`absolute   right-3 cursor-pointer w-5 h-5 mt-6 ${
+                      selectedTab === "convert" || selectedTab === "grid"
+                        ? "top-[-46px] "
+                        : "top-[-12px]"
+                    }`}
                     alt="Upload Icon"
                   />
                 </label>
@@ -567,13 +583,13 @@ export default function TextileImageGen() {
                 </a>
               )}
 
-              {/* <input
+              <input
                 type="file"
                 id="fileUpload"
                 accept="image/*"
                 onChange={handleFileChange}
-                className="w-full "
-              /> */}
+                className="hidden "
+              />
               <label htmlFor="fileUpload">
                 <img
                   src={vector}

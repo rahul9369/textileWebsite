@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setTextileParameters } from "../../features/textiles/textilesSlice";
 import { setAllParameters } from "../../features/textileDesign/textileDesignSlice";
-import "./textile.css"
+import "./textile.css";
 
 export default function TextileDesignPage() {
   const [complexity, setComplexity] = useState(3);
@@ -27,7 +27,7 @@ export default function TextileDesignPage() {
 
   return (
     <div className="min-h-screen bg-[#FCD8A8] text-gray-900 flex flex-col items-center justify-center px-4 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 max-w-7xl w-full">
         {/* Text Section */}
         <div className="text-center sm:pt-10 pt-16 md:text-left space-y-4">
           {/* Desktop Heading */}
@@ -59,7 +59,7 @@ export default function TextileDesignPage() {
       </div>
 
       {/* Parameters Section */}
-      <div className="w-full max-w-6xl p-6 rounded-2xl shadow-lg space-y-4 sm:space-y-6 relative border border-black bg-gradient-to-r sm:bg-gradient-to-l from-[#FBDBB5] to-[#DB9245]">
+      <div className="w-full max-w-7xl p-6 rounded-2xl shadow-lg space-y-4 sm:space-y-6 relative border border-black bg-gradient-to-r sm:bg-gradient-to-l from-[#FBDBB5] to-[#DB9245]">
         <Link
           to="/textile"
           className="absolute top-4 right-4 p-2 rounded-md bg-black">

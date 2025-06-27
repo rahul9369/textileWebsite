@@ -38,7 +38,7 @@ export default function TextileDesignPage() {
 
   return (
     <div className="min-h-screen bg-[#FCD8A8] text-gray-900 flex flex-col items-center justify-center px-4 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 max-w-6xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 max-w-7xl w-full">
         {/* Text Section */}
         <div className="text-center sm:pt-10 pt-16 md:text-left space-y-4">
           {/* Desktop Heading */}
@@ -70,7 +70,7 @@ export default function TextileDesignPage() {
       </div>
 
       {/* Parameters Section */}
-      <div className="w-full max-w-6xl p-6 rounded-2xl shadow-lg space-y-4 sm:space-y-6 relative border border-black bg-gradient-to-r sm:bg-gradient-to-l from-[#FBDBB5] to-[#DB9245]">
+      <div className="w-full max-w-7xl p-6 rounded-2xl shadow-lg space-y-4 sm:space-y-6 relative border border-black bg-gradient-to-r sm:bg-gradient-to-l from-[#FBDBB5] to-[#DB9245]">
         <Link
           to="/textile"
           className="absolute top-4 right-4 p-2 rounded-md bg-black">
@@ -82,46 +82,45 @@ export default function TextileDesignPage() {
         </h2>
 
         {/* Design Type */}
-  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-  {/* Button Group */}
-  <div className="flex gap-2 bg-white rounded-md p-1 sm:w-[358px] w-[290px]">
-    <button
-      onClick={() => setDesignType("standalone")}
-      className={`px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
-        designType === "standalone" ? "bg-black text-white" : "text-black"
-      }`}
-    >
-      Standalone
-    </button>
-    <button
-      onClick={() => setDesignType("pattern")}
-      className={`ml-auto px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
-        designType === "pattern" ? "bg-black text-white" : "text-black"
-      }`}
-    >
-      Pattern
-    </button>
-  </div>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          {/* Button Group */}
+          <div className="flex gap-2 bg-white rounded-md p-1 sm:w-[358px] w-[330px]">
+            <button
+              onClick={() => setDesignType("standalone")}
+              className={`px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
+                designType === "standalone"
+                  ? "bg-black text-white"
+                  : "text-black"
+              }`}>
+              Standalone
+            </button>
+            <button
+              onClick={() => setDesignType("pattern")}
+              className={`ml-auto px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
+                designType === "pattern" ? "bg-black text-white" : "text-black"
+              }`}>
+              Pattern
+            </button>
+          </div>
 
-  {/* Shade input desktop */}
-  <div className="hidden sm:block w-[358px]">
-    <input
-      type="text"
-      placeholder="Enter Colour / Shade Preference"
-      value={shade}
-      onChange={(e) => setShade(e.target.value)}
-      className="w-full px-2 py-2 rounded-md bg-white text-sm outline-none border border-black"
-    />
-  </div>
-</div>
-
+          {/* Shade input desktop */}
+          <div className="hidden sm:block w-[358px]">
+            <input
+              type="text"
+              placeholder="Enter Colour / Shade Preference"
+              value={shade}
+              onChange={(e) => setShade(e.target.value)}
+              className="w-full px-2 py-2 rounded-md bg-white text-sm outline-none border border-black"
+            />
+          </div>
+        </div>
 
         {/* Complexity + Images */}
         <div className="grid sm:grid-cols-3 grid-cols-1 gap-3 sm:gap-4">
           {/* Complexity */}
-          <div className="flex items-center gap-2 bg-black text-white sm:px-4 px-2 py-2 rounded-md w-full sm:w-auto">
-            <span className="mr-4 text-sm sm:text-base">Complexity</span>
-            <div className="bg-white rounded-md py-1 sm:w-44 w-52 flex items-center justify-center ml-auto">
+          <div className="flex items-center gap-2 bg-black text-white sm:px-2 px-2 py-2 rounded-md w-full sm:w-auto">
+            <span className=" text-sm sm:text-base">Complexity</span>
+            <div className="bg-white rounded-md py-1 sm:w-44 w-44 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setComplexity((prev) => Math.max(1, prev - 1))}
                 disabled={complexity === 1}
@@ -161,6 +160,15 @@ export default function TextileDesignPage() {
               </button>
             </div>
           </div>
+          <div className="sm:hidden w-full">
+            <input
+              type="text"
+              placeholder="Enter Colour / Shade Preference"
+              value={shade}
+              onChange={(e) => setShade(e.target.value)}
+              className="w-full px-4 py-2 rounded-md bg-white text-sm outline-none border border-black"
+            />
+          </div>
 
           <div className="flex">
             <button
@@ -173,15 +181,6 @@ export default function TextileDesignPage() {
         </div>
 
         {/* Shade input mobile */}
-        <div className="sm:hidden w-full">
-          <input
-            type="text"
-            placeholder="Enter Colour / Shade Preference"
-            value={shade}
-            onChange={(e) => setShade(e.target.value)}
-            className="w-full px-4 py-2 rounded-md bg-white text-sm outline-none border border-black"
-          />
-        </div>
 
         {/* Save button */}
 
