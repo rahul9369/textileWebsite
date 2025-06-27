@@ -101,20 +101,20 @@ export default function TextileLandingPage() {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}>
-            <p className="landing-heading-animate text-[22px] sm:text-[30px] md:text-5xl font-bold text-black leading-snug">
+            <p className="landing-heading-animate text-[28px] sm:text-[30px] md:text-5xl font-bold text-black leading-snug">
               From Thread to Triumph
             </p>
             {/* <p className="landing-subheading-animate text-[16px] sm:text-[24px] md:text-4xl text-gray-800 mt-1">
               Automate Your Textile Business
             </p> */}
             <p
-              className="landing-subheading-animate text-[16px] sm:text-[20px] tracking-wider md:text-4xl text-gray-800 mt-1"
+              className="landing-subheading-animate text-[20px] sm:text-[20px] tracking-wider md:text-4xl text-gray-800 mt-1"
               style={{ wordSpacing: "" }}>
               Automate Your Textile Business
             </p>
           </motion.div>
 
-          <p className="landing-desc-animate pt-6 sm:pt-10 text-[20px] tracking-wider sm:text-base text-gray-700">
+          <p className="landing-desc-animate pt-6 sm:pt-8 sm:text-[20px] text-[14px] tracking-wider sm:text-base text-gray-700">
             The Only App You'll Ever Need To{" "}
             <strong>
               Manage <br className="" />
@@ -134,10 +134,10 @@ export default function TextileLandingPage() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="landing-card landing-card-animate bg-orange-200 shadow rounded-lg p-1 w-[32%] text-center h-32 flex flex-col justify-center items-center"
+                className="landing-card landing-card-animate bg-orange-200 shadow rounded-lg p-1 w-[30%]  text-center sm:h-32 h-28 flex flex-col justify-center items-center gap-2"
                 style={{ "--delay": `${0.9 + idx * 0.2}s` }}>
                 <p
-                  className="text-lg sm:text-3xl font-bold text-[#292c33] leading-tight mb-3"
+                  className="text-sm sm:text-3xl font-bold text-[#292c33] leading-tight mb-3"
                   style={{
                     fontFamily: "Anton, sans-serif",
                     letterSpacing: "0.06em", // optional spacing
@@ -183,7 +183,7 @@ export default function TextileLandingPage() {
       </div>
 
       {/* Right Image and Popups */}
-      <motion.div className="w-full md:w-1/2 flex justify-center items-center relative mt-10 md:mt-0 order-2 md:order-2">
+      <motion.div className="w-full md:w-1/2 flex justify-center items-center relative sm:mt-10 mt-4 md:mt-0 order-2 md:order-2">
         <motion.img
           src={Img}
           alt="App Screenshot"

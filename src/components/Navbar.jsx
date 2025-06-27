@@ -10,6 +10,10 @@ const Navbar = () => {
   const currentUser = useSelector((state) => state?.auth?.user);
   console.log(currentUser);
 
+  const handleClick =()=> {
+    setIsOpen(false);
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 bg-orange-300 py-3 shadow-md">
       <div className="flex items-center justify-between">
@@ -100,21 +104,21 @@ const Navbar = () => {
       {/* Mobile Menu (Dropdown) */}
       {isOpen && (
         <div className="md:hidden mt-3 flex flex-col space-y-3 text-white font-medium text-sm bg-orange-400 rounded-lg p-4 shadow-lg">
-          <Link to="/textile" className="hover:text-orange-100">
+          <Link to="/textile" className="hover:text-orange-100" onClick={handleClick}>
             AI Labs
           </Link>
 
-          <Link to="/contact" className="hover:text-orange-100">
+          <Link to="/contact" className="hover:text-orange-100" onClick={handleClick}>
             Contact
           </Link>
 
-          <Link to="/account" className="hover:text-orange-100">
+          <Link to="/account" className="hover:text-orange-100" onClick={handleClick}>
             Account
           </Link>
 
           <Link
             to="/signin"
-            className="px-4 py-2 rounded-full bg-black text-white hover:opacity-90 transition text-center">
+            className="px-4 py-2 rounded-full bg-black text-white hover:opacity-90 transition text-center" onClick={handleClick}>
             Get Started
           </Link>
         </div>

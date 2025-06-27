@@ -177,9 +177,9 @@ export default function BusinessDashboard() {
 
         {/* Mobile View */}
         <div className="block md:hidden">
-          <div className="bg-[#292c33] pt-6 pb-36 flex flex-col items-center">
+          <div className="bg-[#292c33] pt-6 pb-14 flex flex-col items-center">
             <h1
-              className={`text-3xl sm:text-4xl font-semibold text-white text-center mb-8 ${
+              className={`text-2xl sm:text-4xl font-semibold text-white text-center mb-8 ${
                 inView ? "business-heading-animate-mobile" : ""
               }`}>
               Built to Empower Every <br /> Thread of Your Business
@@ -210,7 +210,7 @@ export default function BusinessDashboard() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`bg-[#fdbb78] rounded-lg shadow w-full p-2 flex flex-col ${
+                  className={`bg-[linear-gradient(77.05deg,_#DB9245_2.55%,_#FBDBB5_97.45%)] rounded-lg shadow w-full p-2 flex flex-col ${
                     inView ? "business-card-animate" : ""
                   }`}
                   data-card-index={i}>
@@ -239,7 +239,7 @@ export default function BusinessDashboard() {
               initial={{ opacity: 0, x: -100 }}
               animate={mobileSectionInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.9, ease: "easeOut" }}
-              className="w-[95vw] h-auto drop-shadow-xl rounded-xl mx-auto -mt-32 sm:w-[90vw] lg:w-[85vw]"
+              className="w-[90vw] h-auto drop-shadow-xl rounded-xl mx-auto  sm:w-[90vw] lg:w-[85vw]"
             />
 
             <motion.h2

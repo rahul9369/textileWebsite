@@ -59,10 +59,14 @@ export default function AiMagicSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="block lg:hidden">
-            <img
-              src={Aimagic}
-              alt="AI Magic"
-              className="w-[320px] h-[380px] mx-auto rounded-xl drop-shadow-2xl"
+          <video
+              className="rounded-lg w-full object-contain h-90 "
+              src="https://res.cloudinary.com/dyuov6i8c/video/upload/v1751011151/Textile%20Design%20Generator/czsezmc1y2llfz28myuf.mp4"
+              autoPlay
+              loop
+              // muted
+              controls
+              // playsInline
             />
           </motion.div>
 
@@ -133,13 +137,13 @@ export default function AiMagicSection() {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-4 h-4 sm:w-6 sm:h-6 mr-2 mt-1"
+                    className="w-4 h-4 sm:w-6 sm:h-6 sm:ml-3 mt-2"
                   />
                   <div className="flex flex-col justify-center">
-                    <h3 className="font-semibold text-[10px] sm:text-sm">
+                    <h3 className="font-semibold text-[10px] sm:text-sm sm:ml-10 ml-4">
                       {item.title}
                     </h3>
-                    <p className="text-[10px] sm:text-sm text-gray-600">
+                    <p className="text-[10px] sm:text-sm text-gray-600 sm:ml-10 ml-4">
                       {item.desc}
                     </p>
                   </div>
