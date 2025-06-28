@@ -353,9 +353,14 @@ export default function TextileImageGen() {
             {selectedTab === "generate" && (
               <div className="flex pt-4 justify-center">
                 <button
-                  onClick={() => handleTabClick(generate)}
-                  className="text-black text-[20px] py-2 bg-orange-300 rounded-lg cursor-pointer hover:bg-orange-400 px-6">
-                  Generate Again
+                  onClick={handleSubmit}
+                  disabled={loading}
+                  className={`text-black text-[20px] py-2 rounded-lg cursor-pointer px-6 ${
+                    loading
+                      ? "bg-orange-200 cursor-not-allowed"
+                      : "bg-orange-300 hover:bg-orange-400"
+                  }`}>
+                  {loading ? "Generating..." : "Generate Again"}
                 </button>
               </div>
             )}
@@ -422,7 +427,7 @@ export default function TextileImageGen() {
                 ? "bg-black text-white"
                 : "bg-white text-black"
             } 
-            text-xs sm:text-base truncate max-w-[160px] sm:max-w-[150px]`}>
+            text-xs sm:text-base truncate max-w-[140px] sm:max-w-[150px]`}>
                   <img
                     src={tab.icon}
                     className={`w-4 h-4 ${
@@ -633,16 +638,16 @@ export default function TextileImageGen() {
       {/* Modal Preview */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 bg-orange-300 bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
-          <div className="bg-white rounded-lg p-4 max-w-md w-full shadow-lg relative">
+          <div className="bg-white rounded-lg p-4 max-w-md  sm:w-full w-[90%] shadow-lg relative">
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-[-10px] right-[-2px]   text-gray-600 hover:text-black text-3xl">
+              className="absolute top-[-8px] right-[2px]   text-gray-600 hover:text-black text-3xl">
               ×
             </button>
             <img
               src={selectedImage}
               alt="Selected"
-              className="w-full h-auto rounded-md  mb-4"
+              className="sm:w-full w-[90%] m-auto  rounded-md  mb-4"
             />
             <div className="flex justify-center gap-4">
               <button

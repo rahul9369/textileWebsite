@@ -84,10 +84,10 @@ export default function TextileDesignPage() {
         {/* Design Type */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {/* Button Group */}
-          <div className="flex gap-2 bg-white rounded-md p-1 sm:w-[358px] w-[330px]">
+          <div className="flex gap-2 bg-white rounded-md p-1 sm:w-[400px] w-[330px]">
             <button
               onClick={() => setDesignType("standalone")}
-              className={`px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
+              className={`px-12 py-1 rounded-md cursor-pointer font-semibold transition ${
                 designType === "standalone"
                   ? "bg-black text-white"
                   : "text-black"
@@ -96,7 +96,7 @@ export default function TextileDesignPage() {
             </button>
             <button
               onClick={() => setDesignType("pattern")}
-              className={`ml-auto px-8 py-1 rounded-md cursor-pointer font-semibold transition ${
+              className={`ml-auto px-16 py-1 rounded-md cursor-pointer font-semibold transition ${
                 designType === "pattern" ? "bg-black text-white" : "text-black"
               }`}>
               Pattern
@@ -104,7 +104,7 @@ export default function TextileDesignPage() {
           </div>
 
           {/* Shade input desktop */}
-          <div className="hidden sm:block w-[358px]">
+          <div className="hidden sm:block w-[400px]">
             <input
               type="text"
               placeholder="Enter Colour / Shade Preference"
@@ -120,7 +120,7 @@ export default function TextileDesignPage() {
           {/* Complexity */}
           <div className="flex items-center gap-2 bg-black text-white sm:px-2 px-2 py-2 rounded-md w-full sm:w-auto">
             <span className=" text-sm sm:text-base">Complexity</span>
-            <div className="bg-white rounded-md py-1 sm:w-44 w-44 flex items-center justify-center ml-auto">
+            <div className="bg-white rounded-md py-1 sm:w-60 w-44 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setComplexity((prev) => Math.max(1, prev - 1))}
                 disabled={complexity === 1}
@@ -140,9 +140,9 @@ export default function TextileDesignPage() {
           </div>
 
           {/* No of Images */}
-          <div className="flex items-center gap-2 bg-black text-white px-2 py-2 rounded-md w-full sm:w-auto">
-            <span className="mr-1 text-sm sm:text-base">No. of Images</span>
-            <div className="bg-white py-1 rounded-md w-44 flex items-center justify-center ml-auto">
+          <div className="flex items-center gap-2 bg-black text-white px-1 py-2 rounded-md w-full sm:w-auto">
+            <span className=" text-sm sm:text-base">No. of Images</span>
+            <div className="bg-white py-1 rounded-md w-60 flex items-center justify-center ml-auto">
               <button
                 onClick={() => setNumImages((prev) => Math.max(1, prev - 1))}
                 disabled={numImages === 1}

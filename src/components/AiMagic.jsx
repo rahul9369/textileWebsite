@@ -58,15 +58,14 @@ export default function AiMagicSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="block lg:hidden">
-          <video
+            className="block  lg:hidden">
+            <video
               className="rounded-lg w-full object-contain h-90 "
               src="https://res.cloudinary.com/dyuov6i8c/video/upload/v1751011151/Textile%20Design%20Generator/czsezmc1y2llfz28myuf.mp4"
               autoPlay
               loop
-              // muted
-              controls
-              // playsInline
+              muted
+              playsInline
             />
           </motion.div>
 
@@ -75,20 +74,20 @@ export default function AiMagicSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="hidden lg:flex lg:w-[40%] absolute top-[80px] right-[60px] justify-center">
+            className="hidden lg:flex lg:w-[40%] absolute top-[70px] right-[60px] justify-center">
             {/* <img
               src={Aimagic}
               alt="AI Magic"
               className="w-[260px] md:w-[400px] h-[400px] md:h-[550px] rounded-xl drop-shadow-2xl"
             /> */}
+
             <video
-              className="rounded-lg w-full object-fill h-90 "
+              className="w-full rounded-lg h-90 object-contain"
               src="https://res.cloudinary.com/dyuov6i8c/video/upload/v1751011151/Textile%20Design%20Generator/czsezmc1y2llfz28myuf.mp4"
               autoPlay
-              // loop
+              loop
               muted
-              controls
-              // playsInline
+              playsInline
             />
           </motion.div>
 
