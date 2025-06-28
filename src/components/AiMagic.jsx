@@ -157,7 +157,7 @@ export default function AiMagicSection() {
                 <img
                   src={star}
                   alt="star icon"
-                  className="w-5 h-5 filter invert  brightness-50"
+                  className="w-5 h-5 ai-magic-btn-icon "
                 />
                 Generate Now
               </button>

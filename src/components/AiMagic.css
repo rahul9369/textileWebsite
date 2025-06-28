@@ -21,6 +21,11 @@
   transform: scale(0.98) !important;
 }
 
+/* Only icon turns orange on hover, nothing else changes */
+.ai-magic-page button.flex:hover .ai-magic-btn-icon {
+  filter: sepia(1) saturate(30%) hue-rotate(-15deg) brightness(1.1) !important;
+}
+
 /* Statistics Cards hover effects - Light animations like Landing page */
 .ai-magic-page .ai-magic-stats-card {
   transition: all 0.3s ease;
@@ -94,4 +99,12 @@
 .ai-magic-stats-card-animate[data-card-index="0"] { animation-delay: 0.6s; }
 .ai-magic-stats-card-animate[data-card-index="1"] { animation-delay: 0.7s; }
 .ai-magic-stats-card-animate[data-card-index="2"] { animation-delay: 0.8s; }
-.ai-magic-stats-card-animate[data-card-index="3"] { animation-delay: 0.9s; } 
+.ai-magic-stats-card-animate[data-card-index="3"] { animation-delay: 0.9s; }
+
+.ai-magic-btn-icon {
+  filter: invert(1) brightness(1.2);
+}
+
+.ai-magic-page button.flex:hover .ai-magic-btn-icon {
+  filter: sepia(1) saturate(200%) hue-rotate(-15deg) brightness(1.1) !important;
+} 
