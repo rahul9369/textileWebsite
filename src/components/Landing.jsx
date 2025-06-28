@@ -93,7 +93,7 @@ export default function TextileLandingPage() {
   }, [hasMounted, isMobile, controls1, controls2, controls3]);
 
   return (
-    <div className="landing-fade-in min-h-screen pt-20 sm:pt-0 bg-[linear-gradient(77.05deg,_#DB9245_2.55%,_#FBDBB5_97.45%)] text-gray-900 px-4 sm:px-6 md:px-10 flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+    <div className="landing-fade-in min-h-screen pt-20 sm:pt-0 bg-[linear-gradient(77.05deg,_#DB9245_2.55%,_#FBDBB5_97.45%)] text-gray-900 px-4 sm:px-6 md:px-10 flex flex-col md:flex-row items-center justify-between relative overflow-hidden overflow-x-hidden w-full">
       {/* Left Content */}
       <div className="w-full md:w-1/2 order-1 md:order-1">
         <div className="w-full max-w-xl mx-auto space-y-4 sm:space-y-6 text-center md:text-left">

@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1e1e23] text-gray-300 px-6 py-10 text-sm md:text-base">
+    <footer className="bg-[#1e1e23] text-gray-300 px-6 py-10 text-sm md:text-base overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto text-center">
         {/* Logo and Tagline */}
         <div className="flex flex-col items-center space-y-4">
@@ -31,7 +31,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-2 whitespace-nowrap">
               <FaGlobe className="text-orange-400" />
-              <span className="break-all">claw.lawyers@gmail.com</span>
+              <span className="break-all">office@fabriqs.in</span>
             </div>
           </div>
         </div>

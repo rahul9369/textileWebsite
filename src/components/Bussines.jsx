@@ -54,7 +54,7 @@ export default function BusinessDashboard() {
   return (
     <div
       ref={businessRef}
-      className="business-page min-h-[120vh]  bg-[linear-gradient(#FBDBB5_97.45%)] text-gray-900 font-sans">
+      className="business-page min-h-[120vh] bg-[linear-gradient(#FBDBB5_97.45%)] text-gray-900 font-sans overflow-x-hidden w-full">
       <div className="mx-auto">
         {/* Desktop View */}
 

@@ -247,7 +247,7 @@ export default function TextileImageGen() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FCD8A8] text-gray-900 flex flex-col items-center sm:px-4 py-10">
+    <div className="min-h-screen bg-[#FCD8A8] text-gray-900 flex flex-col items-center sm:px-4 py-10 overflow-x-hidden w-full">
       {/* Top Banner */}
       {/* Banner or Generated Image Section */}
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 items-center gap-8">
@@ -370,11 +370,11 @@ export default function TextileImageGen() {
 
       {/* Main Section */}
       <div
-        className="sm:w-full w-[90%] max-w-7xl mt-10"
+        className="sm:w-full max-w-7xl mt-10 overflow-x-hidden w-full"
         id="editFormSection"
         ref={formRef}>
         {/* Coins section */}
-        <div className="bg-gradient-to-r from-[#D88939] to-[#E9A751] p-5 rounded-xl shadow-lg space-y-4">
+        <div className="bg-gradient-to-r from-[#D88939] to-[#E9A751] p-5 rounded-xl shadow-lg space-y-4 ">
           {/* Tabs and Coins */}
           <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
             {/* Coins section - mobile me pehle, desktop me baad me */}

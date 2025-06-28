@@ -15,7 +15,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 bg-orange-300 py-3 shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 bg-orange-300 py-3 shadow-md overflow-x-hidden w-full">
       <div className="flex items-center justify-between">
         {/* Left: Logo and Brand */}
         <div
